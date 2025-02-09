@@ -16,23 +16,86 @@ const slides = [
       "/paintings/images/almond_blossom/filtered_img_9.png",
       "/paintings/images/almond_blossom/filtered_img_10.png",
       "/paintings/images/almond_blossom/almond-blossom-min.jpg",
-      // "/paintings/images/almond_blossom/almond-blossom.jpg",
     ],
   },
   {
-    original: "/paintings/images/lilacs/lilacs.jpeg",
+    original: "/paintings/images/pink_roses/pink-roses-latour-min.jpg",
     versions: [
-      "/paintings/images/lilacs/filtered_img_1.jpg",
-      "/paintings/images/lilacs/filtered_img_2.jpg",
-      "/paintings/images/lilacs/filtered_img_3.jpg",
-      "/paintings/images/lilacs/filtered_img_4.jpg",
-      "/paintings/images/lilacs/filtered_img_5.jpg",
-      "/paintings/images/lilacs/filtered_img_6.jpg",
-      "/paintings/images/lilacs/filtered_img_7.jpg",
-      "/paintings/images/lilacs/filtered_img_8.jpg",
-      "/paintings/images/lilacs/filtered_img_9.jpg",
-      "/paintings/images/lilacs/filtered_img_10.jpg",
-      "/paintings/images/lilacs/lilacs.jpeg",
+      "/paintings/images/pink_roses/filtered_img_1.png",
+      "/paintings/images/pink_roses/filtered_img_2.png",
+      "/paintings/images/pink_roses/filtered_img_3.png",
+      "/paintings/images/pink_roses/filtered_img_4.png",
+      "/paintings/images/pink_roses/filtered_img_5.png",
+      "/paintings/images/pink_roses/filtered_img_6.png",
+      "/paintings/images/pink_roses/filtered_img_7.png",
+      "/paintings/images/pink_roses/filtered_img_8.png",
+      "/paintings/images/pink_roses/filtered_img_9.png",
+      "/paintings/images/pink_roses/filtered_img_10.png",
+      "/paintings/images/pink_roses/pink-roses-latour-min.jpg",
+    ],
+  },
+  {
+    original: "/paintings/images/summer_flowers/latour-summer-flowers-min.jpg",
+    versions: [
+      "/paintings/images/summer_flowers/filtered_img_1.png",
+      "/paintings/images/summer_flowers/filtered_img_2.png",
+      "/paintings/images/summer_flowers/filtered_img_3.png",
+      "/paintings/images/summer_flowers/filtered_img_4.png",
+      "/paintings/images/summer_flowers/filtered_img_5.png",
+      "/paintings/images/summer_flowers/filtered_img_6.png",
+      "/paintings/images/summer_flowers/filtered_img_7.png",
+      "/paintings/images/summer_flowers/filtered_img_8.png",
+      "/paintings/images/summer_flowers/filtered_img_9.png",
+      "/paintings/images/summer_flowers/filtered_img_10.png",
+      "/paintings/images/summer_flowers/latour-summer-flowers-min.jpg",
+    ],
+  },
+  {
+    original: "/paintings/images/roses/roses-latour-min.jpg",
+    versions: [
+      "/paintings/images/roses/filtered_img_1.png",
+      "/paintings/images/roses/filtered_img_2.png",
+      "/paintings/images/roses/filtered_img_3.png",
+      "/paintings/images/roses/filtered_img_4.png",
+      "/paintings/images/roses/filtered_img_5.png",
+      "/paintings/images/roses/filtered_img_6.png",
+      "/paintings/images/roses/filtered_img_7.png",
+      "/paintings/images/roses/filtered_img_8.png",
+      "/paintings/images/roses/filtered_img_9.png",
+      "/paintings/images/roses/filtered_img_10.png",
+      "/paintings/images/roses/roses-latour-min.jpg",
+    ],
+  },
+  {
+    original: "/paintings/images/peonies/vase-peonies-latour-min.jpg",
+    versions: [
+      "/paintings/images/peonies/filtered_img_1.png",
+      "/paintings/images/peonies/filtered_img_2.png",
+      "/paintings/images/peonies/filtered_img_3.png",
+      "/paintings/images/peonies/filtered_img_4.png",
+      "/paintings/images/peonies/filtered_img_5.png",
+      "/paintings/images/peonies/filtered_img_6.png",
+      "/paintings/images/peonies/filtered_img_7.png",
+      "/paintings/images/peonies/filtered_img_8.png",
+      "/paintings/images/peonies/filtered_img_9.png",
+      "/paintings/images/peonies/filtered_img_10.png",
+      "/paintings/images/peonies/vase-peonies-latour-min.jpg",
+    ],
+  },
+  {
+    original: "/paintings/images/picard/picard-min.jpg",
+    versions: [
+      "/paintings/images/picard/filtered_img_1.png",
+      "/paintings/images/picard/filtered_img_2.png",
+      "/paintings/images/picard/filtered_img_3.png",
+      "/paintings/images/picard/filtered_img_4.png",
+      "/paintings/images/picard/filtered_img_5.png",
+      "/paintings/images/picard/filtered_img_6.png",
+      "/paintings/images/picard/filtered_img_7.png",
+      "/paintings/images/picard/filtered_img_8.png",
+      "/paintings/images/picard/filtered_img_9.png",
+      "/paintings/images/picard/filtered_img_10.png",
+      "/paintings/images/picard/picard-min.jpg",
     ],
   },
 ];
@@ -42,8 +105,8 @@ export default function Slideshow() {
   const [currentVersion, setCurrentVersion] = useState(0);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
     setCurrentVersion(0);
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
   const nextVersion = () => {
@@ -63,7 +126,7 @@ export default function Slideshow() {
             key={index}
             src={version}
             alt="slideshow"
-            className={`absolute top-0 left-0 w-full h-full object-cover rounded-2xl shadow-lg transition-opacity duration-500 ${
+            className={`absolute top-0 left-0 w-full h-full object-cover rounded-2xl shadow-lg transition-opacity ${currentVersion > 0 ? "duration-500" : "duration-0"} ${
               index <= currentVersion ? "opacity-100" : "opacity-0"
             }`}
           />
@@ -71,7 +134,7 @@ export default function Slideshow() {
       </div>
 
       <Button className="mt-4" onClick={nextVersion}>
-        {currentVersion == 10 ? "Zeige nächstes Bild" : "Zeige nächste Farbe"}
+        {currentVersion == 10 ? "Zeige Liza nächstes Bild" : "Zeige Liza nächste Farbe"}
       </Button>
     </div>
   );
