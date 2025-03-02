@@ -121,6 +121,7 @@ export default function Slideshow() {
     <div className="flex flex-col items-center justify-center h-screen bg-gray-900 text-white">
       <div className="relative w-[600px] h-[400px] mx-auto">
         {/* Display all versions layered on top of each other */}
+        {/* Test comment */}
         {slides[currentSlide].versions.map((version, index) => (
           <img
             key={index}
